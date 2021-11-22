@@ -1,10 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Oct 18 22:13:47 2021
-
-@author: juan
-"""
+# Código de ajuste al SIR
 
 import numpy as np
 from numpy import genfromtxt
@@ -70,7 +64,7 @@ t_measured = np.linspace(0,_nSteps-1,_nSteps)
 
 x2_measured = np.array(genfromtxt('20millones.txt',delimiter=','))
 
-#np.array([0.000, 0.416, 0.489, 0.595, 0.506, 0.493, 0.458, 0.394, 0.335, 0.309])
+
 
 plt.figure()
 plt.scatter(t_measured, x2_measured, marker='+', color='b', label='Datos de sim. estocástica', s=75)

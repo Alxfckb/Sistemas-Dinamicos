@@ -1,3 +1,4 @@
+#Simulacion estocastica
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
@@ -56,9 +57,9 @@ def simulate(df, stats, nSteps=100, mode="random", nRandomContacts=0, plotLattic
         stats["nInfected"].append(np.sum(df["state"] == 1))
         stats["nRemoved"].append(np.sum(df["state"] == 2))
 
-_randomContacts = 5 #modifiqué de 9 a 5
-_chanceOfInfection = 0.01 #modifiqué de 0.025 a 0.05
-_daysCuredAfter = 10 #cambié numero de día
+_randomContacts = 5
+_chanceOfInfection = 0.01
+_daysCuredAfter = 10
 _chanceOfRecovery = 1./_daysCuredAfter
 
 _nExperiments = 10
@@ -70,10 +71,6 @@ _nPatientZero = 50000
 x = np.linspace(0,_nSteps-1,_nSteps)
 allStats = []
 
-#SIRModel = MathModel(_nAgents, _nPatientZero, chanceOfInfection=0.025, randomContacts=5, daysCuredAfter=21)
-#print("Simulate SIR Model")
-#for i in tqdm(range(_nSteps)):
- #   SIRModel.calculateStep()
 
 for iExp in range(_nExperiments):
     print("Starting Experiment:",iExp+1,"/",_nExperiments)
