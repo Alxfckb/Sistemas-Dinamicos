@@ -1,19 +1,15 @@
-
-
+#Codigo para Gualan
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 from lmfit import minimize, Parameters, Parameter, report_fit
 from scipy.integrate import odeint
-#Parametros tomados de Okosun&Makinde 2011
+
 
 um = 0.1429*7
 vm = 1000*7
 N  = 41103
-#b=0.123
-#gm=5E-1
 
-#gm=5493.20731
 def f(y, t, paras):
     """
     Your system of differential equations
@@ -26,15 +22,14 @@ def f(y, t, paras):
     z2 = y[4]                   #Im
 
     try:
-#        bh = paras['bh'].value
-#        bm = paras['bm'].value
+
         b = paras['b'].value
         th = paras['th'].value
         tm = paras['tm'].value
         gm = paras['gm'].value
     except KeyError:
         th, tm, b ,gm = paras
-    #    bh, bh = paras
+
     # the model equations
     f1 = - th*b*z2*x1/N
     f2 = th*b*z2*x1/N - gm*x2
@@ -77,7 +72,6 @@ y0 = [x10, x20, x30, z10, z20]
 
 # measured data
 
-#x2_measured = np.array([0.000, 0.416, 0.489, 0.595, 0.506, 0.493, 0.458, 0.394, 0.335, 0.309])
 x2_measured=np.array([4,9,94,168,130,256,168,85,102,68,53,46,26,35,32,22,22,14,17,21,
 13,12,11,15,16,16,19,16,29,14,32,22,30,45,61,69,93,75,66,74,
 53,63,36,17,25,12,13,14,9,7,15,13,13,13,19,4,29,13])/256

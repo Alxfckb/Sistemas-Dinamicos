@@ -10,10 +10,7 @@ from scipy.integrate import odeint
 um = 0.1429*7
 vm = 1000*7
 N  = 72502
-#b=0.123
-#gm=5E-1
 
-#gm=5493.20731
 def f(y, t, paras):
     """
     Your system of differential equations
@@ -26,16 +23,14 @@ def f(y, t, paras):
     z2 = y[4]                   #Im
 
     try:
-#        bh = paras['bh'].value
-#        bm = paras['bm'].value
+
         b = paras['b'].value
         th = paras['th'].value
         tm = paras['tm'].value
         gm = paras['gm'].value
     except KeyError:
         th, tm, b ,gm = paras
-    #    bh, bh = paras
-    # the model equations
+
     f1 = - th*b*z2*x1/N
     f2 = th*b*z2*x1/N - gm*x2
     f3 = gm*x2
@@ -77,7 +72,6 @@ y0 = [x10, x20, x30, z10, z20]
 
 # measured data
 
-#x2_measured = np.array([0.000, 0.416, 0.489, 0.595, 0.506, 0.493, 0.458, 0.394, 0.335, 0.309])
 x2_measured=np.array([1,83,200,357,625,761,1284,483,1426,603,521,63,241,144,74,6,67,0,1,14,
 12,13,4,1,0,0,0,0,0,0,4,4,6,13,10,0,1,1,0,1,
 4,2,4,3,6,6,7,11,5,8,2,4,2,12,2,5,3,7,8,14,

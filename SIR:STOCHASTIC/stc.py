@@ -125,6 +125,5 @@ def plotSIR(x,mdianStats,lowerStats,higherStats,figName="tmp.png"):
 
     plt.show()
 
-
 medianStats, lowerStats, higherStats = calculateStats(allStats)
 plotSIR(x,medianStats,lowerStats,higherStats,figName="CompareToSIR.png")

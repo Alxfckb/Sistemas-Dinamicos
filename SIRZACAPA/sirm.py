@@ -1,4 +1,4 @@
-
+#Código para el departamento de zacapa
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,10 +10,7 @@ from scipy.integrate import odeint
 um = 0.1429*7
 vm = 1000*7
 N  = 232667
-#b=0.123
-#gm=5E-1
 
-#gm=5493.20731
 def f(y, t, paras):
     """
     Your system of differential equations
@@ -26,15 +23,14 @@ def f(y, t, paras):
     z2 = y[4]                   #Im
 
     try:
-#        bh = paras['bh'].value
-#        bm = paras['bm'].value
+
         b = paras['b'].value
         th = paras['th'].value
         tm = paras['tm'].value
         gm = paras['gm'].value
     except KeyError:
         th, tm, b ,gm = paras
-    #    bh, bh = paras
+
     # the model equations
     f1 = - th*b*z2*x1/N
     f2 = th*b*z2*x1/N - gm*x2
@@ -68,7 +64,7 @@ def residual(paras, t, data):
 
 
 # initial conditions
-x10 = N
+x10 = N-1
 x20 = 1/1741
 x30 = 0
 z10 = 3E10
@@ -77,7 +73,6 @@ y0 = [x10, x20, x30, z10, z20]
 
 # measured data
 
-#x2_measured = np.array([0.000, 0.416, 0.489, 0.595, 0.506, 0.493, 0.458, 0.394, 0.335, 0.309])
 x2_measured=np.array([1,83,201,357,626,765,1308,646,1741,882,879,336,430,271,188,
 86,132,34,40,53,38,45,23,22,21,15,12,12,15,17,29,32,27,46,28,36,25,31,65,105,93,
 102,99,77,88,77,55,72,72,92,51,41,30,35,23,37,22,26,36,55,52,41,42,16,34,14])/1741
